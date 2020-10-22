@@ -1,0 +1,10 @@
+query QueryMyProfile {
+  myProfile {
+    id
+    email
+    fullName
+    emailVerified
+    roles
+    avatar
+  }
+}

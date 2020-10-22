@@ -1,10 +1,9 @@
 import { NuxtConfig } from '@nuxt/types'
-import { Configuration as WebpackConfiguration } from 'webpack'
 
 const nuxtConfig: NuxtConfig = {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'xxxx',
+    title: 'hello',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -45,6 +44,7 @@ const nuxtConfig: NuxtConfig = {
     '@nuxtjs/emotion',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/apollo',
   ],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
@@ -69,6 +69,14 @@ const nuxtConfig: NuxtConfig = {
   multiTenancyModule: {
     tenants: ['abc', 'xyz', 'mln'],
     defaultTenant: 'xxx',
+  },
+  publicRuntimeConfig: {
+    graphqlEndpoint: process.env.GRAPHQL_ENDPOINT,
+  },
+  apollo: {
+    clientConfigs: {
+      default: '@/plugins/apollo/config.ts',
+    },
   },
 }
 
