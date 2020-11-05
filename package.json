@@ -26,11 +26,10 @@
   "dependencies": {
     "@chakra-ui/nuxt": "^0.1.0",
     "@nuxt/typescript-runtime": "^2.0.0",
-    "@nuxtjs/apollo": "^4.0.1-rc.4",
     "@nuxtjs/composition-api": "^0.13.5",
     "@nuxtjs/emotion": "^0.0.1",
     "@nuxtjs/pwa": "^3.0.2",
-    "@vue/apollo-composable": "^4.0.0-alpha.12",
+    "@vue/apollo-composable": "4.0.0-alpha.10",
     "apollo-cache-inmemory": "^1.6.6",
     "core-js": "^3.6.5",
     "graphql": "^15.3.0",

@@ -1,7 +1,7 @@
 <template>
-  <CC>
-    <div>{{ myProfile }}</div>
-  </CC>
+  <container>
+    <div>{{ profile }}</div>
+  </container>
 </template>
 
 <script lang="ts">
@@ -11,7 +11,7 @@ import queryUserProfile from '@/graphql/user.profile.query.gql'
 import { MyProfile } from '@/graphql/types/GraphTypes'
 
 export default defineComponent({
-  name: 'ZCZXCZCZ',
+  name: 'ZZZZ',
   setup() {
     const number = ref(0)
     const profile = ref({})
