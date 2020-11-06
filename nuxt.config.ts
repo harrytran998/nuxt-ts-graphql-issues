@@ -3,7 +3,7 @@ import { NuxtConfig } from '@nuxt/types'
 const nuxtConfig: NuxtConfig = {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'Hello bae',
+    title: 'Hello asdasd',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -21,7 +21,7 @@ const nuxtConfig: NuxtConfig = {
   css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [],
+  plugins: ['@/plugins/apollo/index'],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -44,7 +44,7 @@ const nuxtConfig: NuxtConfig = {
     '@nuxtjs/emotion',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    // '@nuxtjs/apollo',
+    '@nuxtjs/apollo',
   ],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
@@ -71,7 +71,7 @@ const nuxtConfig: NuxtConfig = {
     defaultTenant: 'xxx',
   },
   publicRuntimeConfig: {
-    graphqlEndpoint: process.env.GRAPHQL_ENDPOINT,
+    graphqlEndpoint: process.env.GRAPHQL_ENDPOINT || 'http://localhost:8080/graphql',
   },
   apollo: {
     clientConfigs: {

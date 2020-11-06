@@ -1,12 +1,11 @@
 <template>
   <div class="container">
     <CBox v-bind="mainStyles[colorMode]" d="flex" w="full" h="full" flex-dir="column" justify-content="center">
-      <CHeading text-align="center" mb="4"> ⚡️ Hello chakra-ui/vue </CHeading>
-      <CHeading color="cyan.500" text-align="center" mb="4"> ⚡️ Hello chakra-ui/vue </CHeading>
-      <CHeading color="orange.500" text-align="center" mb="4"> ⚡️ Hello chakra-ui/vue </CHeading>
-      <CHeading color="pink.500" text-align="center" mb="4"> ⚡️ Hello chakra-ui/vue </CHeading>
+      <c-box :class="image" />
+      <c-text v-if="varis">{{ varis }}</c-text
+      >AA
       <CHeading color="gray.600" text-align="center" mb="4"> ⚡️ Hello chakra-ui/vue </CHeading>
-      <CHeading color="violet.300" text-align="left" mb="4"> ⚡️ Hello chakra-ui/vue </CHeading>
+      <CHeading color="violet.300" text-align="left" mb="4"> ⚡️ Hello zxczxc-ui/vue </CHeading>
       <CFlex justify="center" direction="column" align="center">
         <CBox mb="3">
           <CButton left-icon="info" variant-color="blue"> Show Toast </CButton>
@@ -56,10 +55,13 @@
 
 <script lang="ts">
 import { ColorMode, GetColorModeFn } from '@/types'
-import { computed, defineComponent, inject } from '@nuxtjs/composition-api'
+import { computed, defineComponent, inject, onMounted, ref } from '@nuxtjs/composition-api'
+import { css } from 'emotion'
+import { userProfileQuery } from '@/graphql/user'
 
 export default defineComponent({
-  setup() {
+  setup(_, { root }) {
+    const varis = ref({})
     const mainStyles: Object = {
       dark: {
         bg: 'black',
@@ -69,9 +71,31 @@ export default defineComponent({
       },
     }
     const getColorMode: GetColorModeFn = inject('$chakraColorMode', () => 'light')
+
+    // @ts-ignore
+    // const result = await root.$apolloProvider.defaultClient.query({ query: userProfileQuery })
+
+    onMounted(async () => {
+      // @ts-ignore
+      const result = await root.$apolloProvider.defaultClient.query({ query: userProfileQuery })
+      if (result) {
+        console.log(': ----------------------')
+        console.log('setup -> result', result)
+        console.log(': ----------------------')
+        varis.value = result.data.myProfile
+      }
+    })
+
     return {
+      varis,
       mainStyles,
       colorMode: computed<ColorMode>(getColorMode),
+      image: css`
+        background-position: 50%;
+        background-size: cover;
+        background-image: url('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F97898904%2F232138391026%2F1%2Foriginal.20200402-212243?w=1024&auto=format%2Ccompress&q=75&sharp=10&s=256a8d7c62afa43e3e7a984d43687892');
+        height: 360px;
+      `,
     }
   },
 })

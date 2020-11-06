@@ -3,7 +3,6 @@ query QueryMyProfile {
     id
     email
     fullName
-    emailVerified
     roles
     avatar
   }

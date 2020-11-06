@@ -26,6 +26,7 @@
   "dependencies": {
     "@chakra-ui/nuxt": "^0.1.0",
     "@nuxt/typescript-runtime": "^2.0.0",
+    "@nuxtjs/apollo": "^4.0.1-rc.4",
     "@nuxtjs/composition-api": "^0.14.0",
     "@nuxtjs/emotion": "^0.0.1",
     "@nuxtjs/pwa": "^3.0.2",
@@ -63,6 +64,7 @@
     "stylelint": "^13.7.2",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0.0",
+    "ts-loader": "^8.0.9",
     "webdriverio": "^6.7.2"
   }
 }
